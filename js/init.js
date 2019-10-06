@@ -13,14 +13,14 @@ var onloadCallback = function() {
   var widgetId1;
   var widgetId2;
 
-  widgetId1 = grecaptcha.render("example1", {
-    sitekey: "6LfCJrwUAAAAAF3wjZPAG5cbmpbc_UTIeRVVKtFO",
-    theme: "light"
-  });
-  widgetId2 = grecaptcha.render(document.getElementById("example2"), {
-    sitekey: "6LfCJrwUAAAAAF3wjZPAG5cbmpbc_UTIeRVVKtFO"
-  });
-  grecaptcha.render(document.getElementById("example3"), {
+  //   widgetId1 = grecaptcha.render("example1", {
+  //     sitekey: "6LfCJrwUAAAAAF3wjZPAG5cbmpbc_UTIeRVVKtFO",
+  //     theme: "light"
+  //   });
+  //   widgetId2 = grecaptcha.render(document.getElementById("example2"), {
+  //     sitekey: "6LfCJrwUAAAAAF3wjZPAG5cbmpbc_UTIeRVVKtFO"
+  //   });
+  widgetId1 = grecaptcha.render(document.getElementById("example3"), {
     sitekey: "6LfCJrwUAAAAAF3wjZPAG5cbmpbc_UTIeRVVKtFO",
     theme: "dark"
   });
