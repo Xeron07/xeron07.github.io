@@ -13,7 +13,7 @@ function clearConsole() {
   setTimeout(() => {
     console.clear();
     clearAgain();
-  }, 2000);
+  }, 3000);
 }
 
 function clearAgain() {
@@ -192,7 +192,7 @@ jQuery(document).ready(function($) {
       contactSubject +
       "&contactMessage=" +
       contactMessage +
-      "keyData=" +
+      "&keyData=" +
       keyData;
 
     setTimeout(() => {
