@@ -9,6 +9,7 @@ jQuery(document).ready(function($) {
   /* FitText Settings
 ------------------------------------------------------ */
   onloadCallback();
+  console.log("hello");
   setTimeout(function() {
     $("h1.responsive-headline").fitText(1, {
       minFontSize: "40px",
