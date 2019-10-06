@@ -173,7 +173,7 @@ jQuery(document).ready(function($) {
   /*	contact form
 ------------------------------------------------------*/
 
-  let submitForm = () => {
+  $("form#contactForm button.submit").click(function() {
     $("#image-loader").fadeIn();
 
     var contactName = $("#contactForm #contactName").val();
@@ -211,10 +211,6 @@ jQuery(document).ready(function($) {
       },
       error: function(err) {}
     });
-  };
-
-  $("form#contactForm button.submit").click(function() {
-    submitForm();
     return false;
   });
 });
