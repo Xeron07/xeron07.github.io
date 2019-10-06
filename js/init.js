@@ -20,7 +20,7 @@ var onloadCallback = function() {
   widgetId2 = grecaptcha.render(document.getElementById("example2"), {
     sitekey: "6LfCJrwUAAAAAF3wjZPAG5cbmpbc_UTIeRVVKtFO"
   });
-  grecaptcha.render("example3", {
+  grecaptcha.render(document.getElementById("example3"), {
     sitekey: "6LfCJrwUAAAAAF3wjZPAG5cbmpbc_UTIeRVVKtFO",
     theme: "dark"
   });
