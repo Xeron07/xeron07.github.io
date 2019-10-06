@@ -23,7 +23,6 @@ function clearAgain() {
 var verifyResponse = function(res) {
   if (res !== null && res !== "") {
     $("#g-recaptcha-response").val("" + res);
-    $("#recaptcha").modal("hide");
     submitForm();
   }
 };
@@ -218,7 +217,7 @@ jQuery(document).ready(function($) {
   };
 
   $("form#contactForm button.submit").click(function() {
-    $("#recaptcha").modal("show");
+    $("#example3").modal("show");
 
     return false;
   });
