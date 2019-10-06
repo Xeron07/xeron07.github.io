@@ -21,10 +21,7 @@ function clearAgain() {
 }
 
 var verifyResponse = function(res) {
-  if (res !== null && res !== "") {
-    $("#g-recaptcha-response").val("" + res);
-    submitForm();
-  }
+  $("#g-recaptcha-response").val("" + res);
 };
 
 var onloadCallback = function() {
@@ -217,8 +214,7 @@ jQuery(document).ready(function($) {
   };
 
   $("form#contactForm button.submit").click(function() {
-    $("#example3").modal("show");
-
+    submitForm();
     return false;
   });
 });
