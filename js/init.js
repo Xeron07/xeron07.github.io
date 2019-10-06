@@ -7,6 +7,12 @@
 /*----------------------------------------------------*/
 /*==========reCAPTCHA ===================*/
 /*------------------------------------------------------*/
+
+var verifyResponse = function(res) {
+  alert(res);
+  $("#g-recaptcha-response").val("" + res);
+};
+
 var onloadCallback = function() {
   // Renders the HTML element with id 'example1' as a reCAPTCHA widget.
   // The id of the reCAPTCHA widget is assigned to 'widgetId1'.
@@ -22,7 +28,8 @@ var onloadCallback = function() {
   //   });
   widgetId1 = grecaptcha.render(document.getElementById("example3"), {
     sitekey: "6LfCJrwUAAAAAF3wjZPAG5cbmpbc_UTIeRVVKtFO",
-    theme: "dark"
+    theme: "dark",
+    callback: verifyResponse
   });
 };
 
