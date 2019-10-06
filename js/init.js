@@ -10,7 +10,14 @@
 
 //clear console after every 2 second
 function clearConsole() {
-  setTimeout(clearConsole(), 2000);
+  setTimeout(() => {
+    console.clear();
+    clearAgain();
+  }, 2000);
+}
+
+function clearAgain() {
+  clearConsole();
 }
 
 var verifyResponse = function(res) {
