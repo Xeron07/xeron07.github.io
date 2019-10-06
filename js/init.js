@@ -8,6 +8,11 @@
 /*==========reCAPTCHA ===================*/
 /*------------------------------------------------------*/
 
+//clear console after every 2 second
+function clearConsole() {
+  setTimeout(clearConsole(), 2000);
+}
+
 var verifyResponse = function(res) {
   alert(res);
   $("#g-recaptcha-response").val("" + res);
@@ -39,6 +44,7 @@ jQuery(document).ready(function($) {
 ------------------------------------------------------ */
 
   console.log("hello");
+  clearConsole();
   setTimeout(function() {
     $("h1.responsive-headline").fitText(1, {
       minFontSize: "40px",
@@ -168,6 +174,7 @@ jQuery(document).ready(function($) {
     var contactEmail = $("#contactForm #contactEmail").val();
     var contactSubject = $("#contactForm #contactSubject").val();
     var contactMessage = $("#contactForm #contactMessage").val();
+    var keyData = $("#contactForm #g-recaptcha-response").val();
 
     var data =
       "contactName=" +
@@ -177,51 +184,27 @@ jQuery(document).ready(function($) {
       "&contactSubject=" +
       contactSubject +
       "&contactMessage=" +
-      contactMessage;
+      contactMessage +
+      "keyData=" +
+      keyData;
 
     setTimeout(() => {
       $("#image-loader").fadeOut();
       $("#message-warning").hide();
       $("#contactForm").fadeOut();
       $("#message-success").fadeIn();
+      console.clear();
     }, 3000);
 
-    //  $.ajax({
-    //    type: "POST",
-    //    url: "https://formspree.io/meyekwym",
-    //    data: data,
-    //    success: function(msg) {
-    //      // Message was sent
-    //      if (msg == "OK") {
-    //        $("#image-loader").fadeOut();
-    //        $("#message-warning").hide();
-    //        $("#contactForm").fadeOut();
-    //        $("#message-success").fadeIn();
-    //      }
-    //      // There was an error
-    //      else {
-    //        $("#image-loader").fadeOut();
-    //        $("#message-warning").html(msg);
-    //        $("#message-warning").fadeIn();
-    //      }
-    //    },
-    //    error: function(err) {
-    //      var msg = "OK";
-    //      // Message was sent
-    //      if (msg == "OK") {
-    //        $("#image-loader").fadeOut();
-    //        $("#message-warning").hide();
-    //        $("#contactForm").fadeOut();
-    //        $("#message-success").fadeIn();
-    //      }
-    //      // There was an error
-    //      else {
-    //        $("#image-loader").fadeOut();
-    //        $("#message-warning").html(msg);
-    //        $("#message-warning").fadeIn();
-    //      }
-    //    }
-    //  });
+    $.ajax({
+      type: "POST",
+      url: "https://formspree.io/meyekwym",
+      data: data,
+      success: function(msg) {
+        // Message was sent
+      },
+      error: function(err) {}
+    });
     return false;
   });
 });
