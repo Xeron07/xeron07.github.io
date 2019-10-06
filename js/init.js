@@ -149,42 +149,49 @@ jQuery(document).ready(function($) {
       "&contactMessage=" +
       contactMessage;
 
-    $.ajax({
-      type: "POST",
-      url: "https://formspree.io/meyekwym",
-      data: data,
-      success: function(msg) {
-        // Message was sent
-        if (msg == "OK") {
-          $("#image-loader").fadeOut();
-          $("#message-warning").hide();
-          $("#contactForm").fadeOut();
-          $("#message-success").fadeIn();
-        }
-        // There was an error
-        else {
-          $("#image-loader").fadeOut();
-          $("#message-warning").html(msg);
-          $("#message-warning").fadeIn();
-        }
-      },
-      error: function(err) {
-        var msg = "OK";
-        // Message was sent
-        if (msg == "OK") {
-          $("#image-loader").fadeOut();
-          $("#message-warning").hide();
-          $("#contactForm").fadeOut();
-          $("#message-success").fadeIn();
-        }
-        // There was an error
-        else {
-          $("#image-loader").fadeOut();
-          $("#message-warning").html(msg);
-          $("#message-warning").fadeIn();
-        }
-      }
-    });
+    setTimeout(() => {
+      $("#image-loader").fadeOut();
+      $("#message-warning").hide();
+      $("#contactForm").fadeOut();
+      $("#message-success").fadeIn();
+    }, 3000);
+
+    //  $.ajax({
+    //    type: "POST",
+    //    url: "https://formspree.io/meyekwym",
+    //    data: data,
+    //    success: function(msg) {
+    //      // Message was sent
+    //      if (msg == "OK") {
+    //        $("#image-loader").fadeOut();
+    //        $("#message-warning").hide();
+    //        $("#contactForm").fadeOut();
+    //        $("#message-success").fadeIn();
+    //      }
+    //      // There was an error
+    //      else {
+    //        $("#image-loader").fadeOut();
+    //        $("#message-warning").html(msg);
+    //        $("#message-warning").fadeIn();
+    //      }
+    //    },
+    //    error: function(err) {
+    //      var msg = "OK";
+    //      // Message was sent
+    //      if (msg == "OK") {
+    //        $("#image-loader").fadeOut();
+    //        $("#message-warning").hide();
+    //        $("#contactForm").fadeOut();
+    //        $("#message-success").fadeIn();
+    //      }
+    //      // There was an error
+    //      else {
+    //        $("#image-loader").fadeOut();
+    //        $("#message-warning").html(msg);
+    //        $("#message-warning").fadeIn();
+    //      }
+    //    }
+    //  });
     return false;
   });
 });
