@@ -21,8 +21,11 @@ function clearAgain() {
 }
 
 var verifyResponse = function(res) {
-  alert(res);
-  $("#g-recaptcha-response").val("" + res);
+  if (res !== null && res !== "") {
+    $("#g-recaptcha-response").val("" + res);
+    $("#recaptcha").modal("hide");
+    submitForm();
+  }
 };
 
 var onloadCallback = function() {
@@ -174,7 +177,7 @@ jQuery(document).ready(function($) {
   /*	contact form
 ------------------------------------------------------*/
 
-  $("form#contactForm button.submit").click(function() {
+  let submitForm = () => {
     $("#image-loader").fadeIn();
 
     var contactName = $("#contactForm #contactName").val();
@@ -212,6 +215,11 @@ jQuery(document).ready(function($) {
       },
       error: function(err) {}
     });
+  };
+
+  $("form#contactForm button.submit").click(function() {
+    $("#recaptcha").modal("show");
+
     return false;
   });
 });
